@@ -1,6 +1,6 @@
 {
   "name": "mmdblookup",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "A promise based spawn version of the mmdblookup utility",
   "main": "cjs/index.js",
   "module": "esm/index.js",
@@ -11,7 +11,13 @@
     "clean": "sed -i.bck \"s/Object.defineProperty(exports, '__esModule', {value: true}).default/module.exports/\" cjs/index.js && rm -rf cjs/index.js.bck",
     "test": "node test/index.js"
   },
-  "keywords": ["mmdblookup", "promise", "ip", "geo", "location"],
+  "keywords": [
+    "mmdblookup",
+    "promise",
+    "ip",
+    "geo",
+    "location"
+  ],
   "author": "Andrea Giammarchi",
   "license": "ISC",
   "devDependencies": {
