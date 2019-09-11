@@ -16,8 +16,8 @@ mmdblookup('8.8.8.8', ['continent']).then(console.log);
 
 // initializing with another db
 // i.e. https://db-ip.com/db/ip-to-country
-const payedDB = require('mmdblookup').db('./full-ip-to-country-lite.mddb');
+const payedDB = require('mmdblookup').mddb('./full-ip-to-country-lite.mddb');
 // or
-const payedDB = mmdblookup.db('./full-ip-to-country-lite.mddb');
+const payedDB = mmdblookup.mddb('./full-ip-to-country-lite.mddb');
 payedDB('8.8.8.8').then(console.log);
 ```

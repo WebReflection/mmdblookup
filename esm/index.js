@@ -54,7 +54,7 @@ const init = db => {
     console.error(`Unable to read ${dbPath}`);
     process.exit(1);
   }
-  mmdblookup.db = init;
+  mmdblookup.mddb = init;
   return mmdblookup;
   function mmdblookup(ip, path = []) {
     return new Promise((resolve, reject) => {

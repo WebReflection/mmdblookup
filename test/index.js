@@ -1,4 +1,4 @@
-const mmdblookup = require('../cjs').db();
+const mmdblookup = require('../cjs').mddb();
 
 console.time(`mmdblookup('8.8.8.8')`);
 mmdblookup('8.8.8.8').then(
