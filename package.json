@@ -9,6 +9,7 @@
     "build": "npm run cjs && npm run clean && npm test",
     "cjs": "ascjs esm cjs",
     "clean": "sed -i.bck \"s/Object.defineProperty(exports, '__esModule', {value: true}).default/module.exports/\" cjs/index.js && rm -rf cjs/index.js.bck",
+    "coveralls": "cat ./coverage/lcov.info | coveralls",
     "test": "istanbul cover test/index.js"
   },
   "keywords": [
@@ -22,6 +23,15 @@
   "license": "ISC",
   "devDependencies": {
     "ascjs": "^3.0.1",
+    "coveralls": "^3.0.6",
     "istanbul": "^0.4.5"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WebReflection/mmdblookup.git"
+  },
+  "bugs": {
+    "url": "https://github.com/WebReflection/mmdblookup/issues"
+  },
+  "homepage": "https://github.com/WebReflection/mmdblookup#readme"
 }
