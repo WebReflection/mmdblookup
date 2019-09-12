@@ -1,5 +1,7 @@
 # mmdblookup
 
+[![Build Status](https://travis-ci.com/WebReflection/mmdblookup.svg?branch=master)](https://travis-ci.com/WebReflection/mmdblookup) [![Coverage Status](https://coveralls.io/repos/github/WebReflection/mmdblookup/badge.svg?branch=master)](https://coveralls.io/github/WebReflection/mmdblookup?branch=master)
+
 A promise based spawn version of the [mmdblookup](https://maxmind.github.io/libmaxminddb/mmdblookup.html) utility, with an updated [ip-to-country-lite](https://db-ip.com/db/download/ip-to-country-lite) default database from [IP Geolocation by DB-IP](https://db-ip.com).
 
 Please note that `mmdblookup` should be installed a part.
