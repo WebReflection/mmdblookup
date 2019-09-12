@@ -9,7 +9,7 @@
     "build": "npm run cjs && npm run clean && npm test",
     "cjs": "ascjs esm cjs",
     "clean": "sed -i.bck \"s/Object.defineProperty(exports, '__esModule', {value: true}).default/module.exports/\" cjs/index.js && rm -rf cjs/index.js.bck",
-    "test": "node test/index.js"
+    "test": "istanbul cover test/index.js"
   },
   "keywords": [
     "mmdblookup",
@@ -21,6 +21,7 @@
   "author": "Andrea Giammarchi",
   "license": "ISC",
   "devDependencies": {
-    "ascjs": "^3.0.1"
+    "ascjs": "^3.0.1",
+    "istanbul": "^0.4.5"
   }
 }
