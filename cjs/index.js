@@ -26,10 +26,10 @@ const parse = result => {
           json.push(':');
         else
           json.push(',');
-        i = next;
+        i = next - 1;
         break;
       case '<':
-        i = result.indexOf('>', i + 1) + 1;
+        i = result.indexOf('>', i + 1);
         break;
       default:
         if (/\d/.test(chr)) {
@@ -39,7 +39,7 @@ const parse = result => {
         }
         else if (/f|t/.test(chr)) {
           json.push(chr === 't' ? 'true' : 'false', ',');
-          i += chr === 't' ? 4 : 5;
+          i += chr === 't' ? 3 : 4;
         }
         break;
     }
