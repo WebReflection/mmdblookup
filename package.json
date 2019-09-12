@@ -1,6 +1,6 @@
 {
   "name": "mmdblookup",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A promise based spawn version of the mmdblookup utility",
   "main": "cjs/index.js",
   "module": "esm/index.js",
