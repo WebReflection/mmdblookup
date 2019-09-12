@@ -24,8 +24,7 @@
   "devDependencies": {
     "ascjs": "^3.0.1",
     "coveralls": "^3.0.6",
-    "istanbul": "^0.4.5",
-    "maxmind": "^3.1.2"
+    "istanbul": "^0.4.5"
   },
   "repository": {
     "type": "git",
@@ -34,5 +33,8 @@
   "bugs": {
     "url": "https://github.com/WebReflection/mmdblookup/issues"
   },
-  "homepage": "https://github.com/WebReflection/mmdblookup#readme"
+  "homepage": "https://github.com/WebReflection/mmdblookup#readme",
+  "dependencies": {
+    "maxmind": "^3.1.2"
+  }
 }
