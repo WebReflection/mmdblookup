@@ -35,6 +35,7 @@ mmdblookup('8.8.8.8').then(
 );
 
 const {parse} = require('../cjs/utils.js');
+compare(`{"test": true !}`, {test: true});
 compare(`{"test": true <u>}`, {test: true});
 compare(`{"test":false}`, {test: false});
 compare(`{"test": "" <u>}`, {test: ""});

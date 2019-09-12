@@ -35,7 +35,6 @@ const parse = result => {
         i = result.indexOf('>', i + 1);
         break;
       default:
-        /* istanbul ignore else */
         if (/^(true|false|\d+(?:\.\d+)?)/.test(result.slice(i))) {
           const chunk = RegExp.$1;
           json.push(chunk, ',');
