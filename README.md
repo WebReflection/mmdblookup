@@ -2,11 +2,7 @@
 
 [![Build Status](https://travis-ci.com/WebReflection/mmdblookup.svg?branch=master)](https://travis-ci.com/WebReflection/mmdblookup) [![Coverage Status](https://coveralls.io/repos/github/WebReflection/mmdblookup/badge.svg?branch=master)](https://coveralls.io/github/WebReflection/mmdblookup?branch=master)
 
-A promise based spawn version of the [mmdblookup](https://maxmind.github.io/libmaxminddb/mmdblookup.html) utility, with an updated [ip-to-country-lite](https://db-ip.com/db/download/ip-to-country-lite) default database from [IP Geolocation by DB-IP](https://db-ip.com).
-
-Please note that `mmdblookup` should be installed a part.
-
-Please also consider using the native [node-geoip2](https://github.com/davidtsai/node-geoip2) module, if extreme perf matters (and if it builds on your machine).
+Originally a promise based spawn version of the [mmdblookup](https://maxmind.github.io/libmaxminddb/mmdblookup.html) utility, with an updated [ip-to-country-lite](https://db-ip.com/db/download/ip-to-country-lite) default database from [IP Geolocation by DB-IP](https://db-ip.com), this is now a simple layer on top of [node-maxmind](https://github.com/runk/node-maxmind).
 
 ```js
 const mmdblookup = require('mmdblookup');
@@ -23,3 +19,5 @@ const payedDB = require('mmdblookup').mddb('./full-ip-to-country-lite.mddb');
 const payedDB = mmdblookup.mddb('./full-ip-to-country-lite.mddb');
 payedDB('8.8.8.8').then(console.log);
 ```
+
+The `.mmdb(mmdbFilePath[, options = {}])` accepts [same options object accepted by maxmind](https://github.com/runk/node-maxmind#options).
