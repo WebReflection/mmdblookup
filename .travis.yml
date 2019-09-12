@@ -1,5 +1,6 @@
 before_install:
-  - sudo apt-get install -y mmdblookup
+  - sudo apt-get update
+  - sudo apt-get install -y mmdb-bin
 language: node_js
 node_js:
   - stable
