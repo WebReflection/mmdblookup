@@ -1,41 +1,46 @@
 'use strict';
 const {existsSync} = require('fs');
 const {resolve} = require('path');
-const {spawn} = require('child_process');
 
-const {parse} = require('./utils.js');
+const {open} = require('maxmind');
 
-const mmdb = db => {
+const {hasOwnProperty} = {};
+
+const through = (result, key) => {
+  if (!hasOwnProperty.call(result, key))
+    throw new Error;
+  return result[key];
+};
+
+const mmdb = (db, options = {watchForUpdates: false}) => {
   if (!db)
     return defaultDB;
   const file = resolve(db);
-  if (!existsSync(file)) {
-    console.error(`Unable to read ${file}`);
-    process.exit(1);
-  }
+  if (!existsSync(file))
+    return fail(`unknown mmdb file: ${file}`);
+  const geoDB = open(file, options).catch(fail);
+  const mmdblookup = (ip, path = []) => {
+    const data = geoDB.then(lookup => lookup.get(ip));
+    return path.length ? data.then(
+      r => {
+        try {
+          return [].concat(path).reduce(through, r);
+        }
+        catch (o_O) {
+          return Promise.reject('invalid path');
+        }
+      }
+    ) : data;
+  };
   mmdblookup.mmdb = mmdb;
   return mmdblookup;
-  function mmdblookup(ip, path = []) {
-    return new Promise((resolve, reject) => {
-      const data = [];
-      const push = data.push.bind(data);
-      const ls = spawn(
-        'mmdblookup',
-        ['--file', file, '--ip', ip].concat(path)
-      );
-      ls.stdout.on('data', push);
-      ls.stderr.on('data', push);
-      ls.on('close', code => {
-        const result = data.join('');
-        if (code)
-          reject(result);
-        else
-          resolve(parse(result));
-      });
-    });
-  }
 };
 
 const defaultDB = mmdb('./dbip-country-lite.mmdb');
 
 module.exports = defaultDB;
+
+function fail(error) {
+  console.error(error);
+  process.exit(1);
+}
