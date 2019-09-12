@@ -1,5 +1,5 @@
 before_install:
-  - apt-get install mmdblookup
+  - sudo apt-get install -y mmdblookup
 language: node_js
 node_js:
   - stable
