@@ -6,9 +6,8 @@
   "module": "esm/index.js",
   "scripts": {
     "update": "db=dbip-country-lite-2019-09.mmdb; rm -rf ${db} ${db}.gz && curl -LO https://download.db-ip.com/free/${db}.gz && gunzip ${db}.gz && mv ${db} dbip-country-lite.mmdb",
-    "build": "npm run cjs && npm run clean && npm test",
-    "cjs": "ascjs esm cjs",
-    "clean": "sed -i.bck \"s/Object.defineProperty(exports, '__esModule', {value: true}).default/module.exports/\" cjs/index.js && rm -rf cjs/index.js.bck",
+    "build": "npm run cjs && npm test",
+    "cjs": "ascjs --no-default esm cjs",
     "coveralls": "cat ./coverage/lcov.info | coveralls",
     "test": "istanbul cover test/index.js"
   },
@@ -22,8 +21,8 @@
   "author": "Andrea Giammarchi",
   "license": "ISC",
   "devDependencies": {
-    "ascjs": "^3.0.1",
-    "coveralls": "^3.0.6",
+    "ascjs": "^4.0.3",
+    "coveralls": "^3.1.0",
     "istanbul": "^0.4.5"
   },
   "repository": {
@@ -35,6 +34,6 @@
   },
   "homepage": "https://github.com/WebReflection/mmdblookup#readme",
   "dependencies": {
-    "maxmind": "^3.1.2"
+    "maxmind": "^4.3.1"
   }
 }
